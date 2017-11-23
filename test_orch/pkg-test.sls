@@ -29,20 +29,6 @@ import random
 
 {% set hosts = [] %}
 
-{% macro destroy_vm(action='None') -%}
-{% for profile in cloud_profile %}
-{% set host = username + profile + rand_name %}
-{% do hosts.append(host) %}
-
-destroy_{{ host }}:
-  salt.function:
-    - name: salt_cluster.destroy_node
-    - tgt: {{ orch_master }}
-    - arg:
-      - {{ host }}
-
-{% endfor %}
-{% endmacro %}
 
 {% macro create_vm(action='None') -%}
 {% for profile in cloud_profile %}
