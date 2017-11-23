@@ -5,6 +5,7 @@
 
 
 
+
 {% set key_timeout = pillar.get('key_timeout', '30') %}
 {% set salt_version = salt['pillar.get']('salt_version', '') %}
 {% set upgrade_salt_version = salt['pillar.get']('upgrade_salt_version', '') %}
